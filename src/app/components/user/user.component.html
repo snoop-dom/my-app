@@ -1,0 +1,39 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<h1>Gene Search by Medical Term</h1>
+<div>
+	<div>
+	      <label id="namb1">Search Medical Term</label>
+	</div>
+	<div>
+	      <input id="namb2" type="text" [(ngModel)]="name">
+	</div>
+	<div>
+		<label id="numb1">Number of Results</label>
+	</div>
+	<div>
+	    <input id="numb2" type="Number" [(ngModel)]="num">
+	</div>
+	<div>
+		<button id="btn" (click)="onSearch()">Search</button>
+	</div>
+</div>
+<table>
+	<tr>
+		<th>Gene</th>
+		<th>Location</th>
+		<th>Variation</th>
+		<th>Source</th>
+		<th>Weblink</th>
+		<th>Description</th>
+		<th>Clinical Significance</th>
+	</tr>
+	<tr *ngFor="let f of list">
+		<td>{{f.g}}</td>
+		<td><a target="_blank" href="{{f.loc}}">{{f.loco}}</a></td>
+		<td>{{f.v}}</td>
+		<td>{{f.source}}</td>
+		<td><a target="_blank" href="{{f.link}}">Click Here</a></td>
+		<td>{{f.d}}</td>
+		<td>{{f.cs}}</td>
+	</tr>
+</table>
