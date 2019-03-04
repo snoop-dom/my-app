@@ -15,8 +15,19 @@ export class UserComponent implements OnInit {
   constructor(private dataService:DataService) {
   }
   ngOnInit() {
-  	// example of variable set above then value set here
+    var input = document.getElementById("namb2")
+    // example of variable set above then value set here
+    input.addEventListener("keyup", function(event) {
+      // Number 13 is the "Enter" key on the keyboard
+      if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("btn").click();
+      }
+    });
   }//life cycle hook that runs when component is initialized
+  
   onSearch(term,num,list){//search function that is used to connect to the esummary ensemble api
   	this.list=[];//have to reset the list variable so new results are not appended, without this reset values are continually added to table each time a new search is performed
   	this.dataService.ngOnInit(this.name,this.num,this.list);//calling the function ngOnInit in the service file data.service.ts
